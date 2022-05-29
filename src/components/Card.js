@@ -1,18 +1,17 @@
 import React from "react";
-import cardImage from './img/katie-zaferes.png';
 import starIcon from './img/star.png';
 
-const Card = () => {
+const Card = (props) => {
     return (
             <div className="card">
-                <img className="card--image" src={cardImage} />
+                <img className="card--image" src={props.img} />
                 <div className="card--stats">
-                    <img src={starIcon} />
-                    <span>5.0</span>
-                    <span>(6) • </span>
-                    <span>USA</span>
-                    <p>Life lessons with Katie Zaferes</p>
-                    <p>From $136 per person</p>
+                    <img class="card--star" src={starIcon} />
+                    <span>{props.rating}</span>
+                    <span class="grey">({props.reviewCount})• </span>
+                    <span class="grey">{props.country}</span>
+                    <span><p>{props.title}</p></span>
+                    <span class="bold"><p>From ${props.price} per person</p></span>
                 </div>
             </div>
     )
