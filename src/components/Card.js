@@ -4,15 +4,16 @@ import starIcon from './img/star.png';
 const Card = (props) => {
     return (
             <div className="card">
-                <img className="card--image" src={props.img} />
+                {props.openSpots === 0 && <div className="card--badge">SOLD OUT</div>}
+                <img src={`../img/${props.img}`} className="card--image" />
                 <div className="card--stats">
-                    <img class="card--star" src={starIcon} />
+                    <img className="card--star" src={starIcon} />
                     <span>{props.rating}</span>
-                    <span class="grey">({props.reviewCount})• </span>
-                    <span class="grey">{props.country}</span>
-                    <span><p>{props.title}</p></span>
-                    <span class="bold"><p>From ${props.price} per person</p></span>
+                    <span className="grey">({props.reviewCount})• </span>
+                    <span className="grey">{props.country}</span>
                 </div>
+                    <p className="card--title">{props.title}</p>
+                    <p className="card--price"><span className="bold">From ${props.price}</span> / person</p>
             </div>
     )
 };
